@@ -48,7 +48,7 @@ public class Utils {
 	 */
 
 	public void esperarQueOElementoSejaVisivel(WebDriver driver,By locatorObject){
-		WebDriverWait wait = new WebDriverWait(driver,10);
+		WebDriverWait wait = new WebDriverWait(driver,50);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(locatorObject));
 	}
 

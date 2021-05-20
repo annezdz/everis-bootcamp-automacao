@@ -32,12 +32,12 @@ public class CadastrarUsuarioUtilsTest {
 
 		util.clickPorCss("#header > div.nav > div > div > nav > div.header_user_info > a");
 
-		util.preencheCampoPorId("email_create", "anne@gmail.com");
+		util.preencheCampoPorId("email_create", "anne.zimmermann.qa@everis.com");
 		util.clickPorCss("button[id='SubmitCreate'] span");
 		util.esperarQueOElementoSejaVisivel(driver,By.id("id_gender2"));
 		util.clickPorId("id_gender2");
-		util.preencheCampoPorId("customer_firstname", "Ane");
-		util.preencheCampoPorId("customer_lastname", "Zim");
+		util.preencheCampoPorId("customer_firstname", "Anne");
+		util.preencheCampoPorId("customer_lastname", "Zimmermann");
 		//util.preencheCampoPorId("email", "email_create");
 		util.preencheCampoPorId("passwd","Mou2e18*55");
 		util.preencheCampoPorCss("#days", "1");

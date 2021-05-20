@@ -28,17 +28,18 @@ public class CadastrarUsuarioUtilsTest {
 	@Test
 	public void cadastrarUsuarioUtils() {
 
-
 		driver.get("http://automationpractice.com/index.php");
 
 		util.clickPorCss("#header > div.nav > div > div > nav > div.header_user_info > a");
-		util.preencheCampoPorId("email_create", "everisbootcampAnnetesteUm@qabeginner.com");
+
+		util.preencheCampoPorId("email_create", "anne@gmail.com");
 		util.clickPorCss("button[id='SubmitCreate'] span");
 		util.esperarQueOElementoSejaVisivel(driver,By.id("id_gender2"));
 		util.clickPorId("id_gender2");
 		util.preencheCampoPorId("customer_firstname", "Ane");
 		util.preencheCampoPorId("customer_lastname", "Zim");
-		util.preencheCampoPorId("passwd", "QA@everis21e3");
+		//util.preencheCampoPorId("email", "email_create");
+		util.preencheCampoPorId("passwd","Mou2e18*55");
 		util.preencheCampoPorCss("#days", "1");
 		util.preencheCampoPorCss("#months", "January");
 		util.preencheCampoPorCss("#years", "2000");
@@ -57,6 +58,7 @@ public class CadastrarUsuarioUtilsTest {
 
 	@After
 	public void afterCenario() {
+		    util.rollbackEmail(driver.findElement(By.id("email_create")));
 			driver.quit();
 
 	}

@@ -2,6 +2,7 @@ package utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,6 +16,10 @@ public class Utils {
 	public void preencheCampoPorId(String id_campo, String value) {
 
 		driver.findElement(By.id(id_campo)).sendKeys(value);
+	}
+
+	public void rollbackEmail(WebElement email_create){
+		driver.findElements(By.id(String.valueOf(email_create))).clear();
 	}
 	
 	public void preencheCampoPorCss(String id_campo, String value) {
@@ -48,7 +53,7 @@ public class Utils {
 	 */
 
 	public void esperarQueOElementoSejaVisivel(WebDriver driver,By locatorObject){
-		WebDriverWait wait = new WebDriverWait(driver,50);
+		WebDriverWait wait = new WebDriverWait(driver,500);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(locatorObject));
 	}
 

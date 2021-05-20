@@ -18,6 +18,11 @@ public class Utils {
 		driver.findElement(By.id(id_campo)).sendKeys(value);
 	}
 
+	/***
+	 * Método criado para ser implementado no método do @after para dar um rollback no email informado
+	 * no teste.
+	 * @param email_create
+	 */
 	public void rollbackEmail(WebElement email_create){
 		driver.findElements(By.id(String.valueOf(email_create))).clear();
 	}
@@ -53,7 +58,7 @@ public class Utils {
 	 */
 
 	public void esperarQueOElementoSejaVisivel(WebDriver driver,By locatorObject){
-		WebDriverWait wait = new WebDriverWait(driver,500);
+		WebDriverWait wait = new WebDriverWait(driver,20);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(locatorObject));
 	}
 

@@ -38,7 +38,6 @@ public class CadastrarUsuarioUtilsTest {
 		util.clickPorId("id_gender2");
 		util.preencheCampoPorId("customer_firstname", "Anne");
 		util.preencheCampoPorId("customer_lastname", "Zimmermann");
-		//util.preencheCampoPorId("email", "email_create");
 		util.preencheCampoPorId("passwd","Mou2e18*55");
 		util.preencheCampoPorCss("#days", "1");
 		util.preencheCampoPorCss("#months", "January");

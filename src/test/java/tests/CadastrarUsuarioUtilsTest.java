@@ -23,6 +23,7 @@ public class CadastrarUsuarioUtilsTest {
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		util = new Utils(driver);
+		driver.manage().window().maximize();
 	}
 
 	@Test
@@ -52,14 +53,12 @@ public class CadastrarUsuarioUtilsTest {
 		util.esperarQueOElementoSejaVisivel(driver,By.cssSelector("a[title='Orders'] span"));
 		WebElement validaTexto = driver.findElement(By.cssSelector("a[title='Orders'] span"));
 		Assert.assertEquals("ORDER HISTORY AND DETAILS", validaTexto.getText());
-
 	}
 
 	@After
 	public void afterCenario() {
 		    util.rollbackEmail(driver.findElement(By.id("email_create")));
 			driver.quit();
-
 	}
 
 }

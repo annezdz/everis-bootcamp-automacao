@@ -26,7 +26,8 @@ public class RealizarLoginPageTest {
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		util = new Utils(driver);
-		realizarLoginPage = new RealizarLoginPage(driver);		
+		realizarLoginPage = new RealizarLoginPage(driver);
+		driver.manage().window().maximize();
 	}
 	
 	@Test

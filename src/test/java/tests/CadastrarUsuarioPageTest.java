@@ -12,10 +12,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pages.CadastrarUsuarioPage;
+import utils.Utils;
 
 public class CadastrarUsuarioPageTest {
 
 	private WebDriver driver;
+	private Utils util;
 	private CadastrarUsuarioPage cadastrarUsuarioPage;
 
 	@Before
@@ -23,23 +25,25 @@ public class CadastrarUsuarioPageTest {
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		cadastrarUsuarioPage = new CadastrarUsuarioPage(driver);
-		
+		driver.manage().window().maximize();
 	}
 
 	@Test
 	public void cadastrarUsuarioPage() {
-		
-		WebDriverWait wait = new WebDriverWait(driver, 5);
+
+		WebDriverWait wait = new WebDriverWait(driver, 400);
 
 		cadastrarUsuarioPage.cadastrarusuario();
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[title='Orders'] span"))); 
+		//util.esperarQueOElementoSejaVisivel(driver,By.cssSelector("a[title='Orders'] span"));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[title='Orders'] span")));
+
 		WebElement validaTexto = driver.findElement(By.cssSelector("a[title='Orders'] span"));
 		Assert.assertEquals("ORDER HISTORY AND DETAILS", validaTexto.getText());
-
 	}
 
 	@After
 	public void afterCenario() {
-			driver.quit();
+		//util.rollbackEmail(driver.findElement(By.id("email_create")));
+		driver.quit();
 	}
 }

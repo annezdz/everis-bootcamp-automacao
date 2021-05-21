@@ -41,8 +41,7 @@ public class CadastrarNovoEnderecoPage {
         //util.clickPorxpath("//span[contains(@class, 'icon-building')and text()='Addresses']");
         util.clickPorxpath("//a[@title='Addresses']");
         util.clickPorxpath("//a[@title='Add an address']");
-        util.preencheCampoPorId("firstname", "customer_firstname");
-        util.preencheCampoPorId("lastname", "customer_lastname");
+        //util.preencheCampoPorId("lastname", "customer_lastname");
         util.preencheCampoPorId("address1", "address1");
         util.preencheCampoPorId("address2", "U.S. Route 491");
         util.preencheCampoPorId("city", "Salt Lake City");
@@ -51,6 +50,7 @@ public class CadastrarNovoEnderecoPage {
         util.preencheCampoPorId("id_country", "United States");
         util.preencheCampoPorId("phone", "9999999999");
         util.preencheCampoPorId("phone_mobile", "9999999998");
+        util.preencheCampoPorId("alias","ii");
         util.clickPorId("submitAddress");
 
     }

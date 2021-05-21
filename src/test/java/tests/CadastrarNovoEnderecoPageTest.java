@@ -38,9 +38,10 @@ public class CadastrarNovoEnderecoPageTest {
 
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[title='Update'] span")));
 
+
         //utils.esperarQueOElementoSejaVisivel(driver, By.cssSelector("a[title='Update'] span"));
-        WebElement validaTexto = driver.findElement(By.cssSelector("a[title='Orders'] span"));
-        Assert.assertEquals("Back to your addresses",validaTexto.getText());
+        WebElement validaTexto = driver.findElement(By.cssSelector("a[title='Add an address'] span"));
+        Assert.assertEquals("Add a new address",validaTexto.getText());
 
     }
 

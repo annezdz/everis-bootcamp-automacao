@@ -24,7 +24,7 @@ public class CadastrarUsuarioPage {
 		driver.get("http://automationpractice.com/index.php");
 
 		util.clickPorCss("#header > div.nav > div > div > nav > div.header_user_info > a");
-		util.preencheCampoPorId("email_create", "everisbootcampteste9@qabeginner.com");
+		util.preencheCampoPorId("email_create", "everisbootcampteste51@qabeginner.com");
 		util.clickPorCss("button[id='SubmitCreate'] span");
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("id_gender2")));
 		util.clickPorId("id_gender2");

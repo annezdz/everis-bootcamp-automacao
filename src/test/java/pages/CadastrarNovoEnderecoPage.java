@@ -2,6 +2,8 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
+import tests.RealizarLoginPageTest;
 import utils.Utils;
 
 
@@ -9,17 +11,36 @@ public class CadastrarNovoEnderecoPage {
 
     private WebDriver driver;
     private Utils util;
+    private RealizarLoginPage loginPage;
+
 
     public CadastrarNovoEnderecoPage(WebDriver driver) {
         util = new Utils(driver);
         this.driver = driver;
     }
 
-    public void cadastrarNovoEndereco(){
+//    public void RealizarLogin() {
+//
+//        WebDriverWait wait = new WebDriverWait(driver, 400);
+//
+//        driver.get("http://automationpractice.com/index.php");
+//
+//        util.clickPorCss("#header > div.nav > div > div > nav > div.header_user_info > a");
+//        util.preencheCampoPorId("email", "everisbootcamp@qabeginner.com");
+//        util.preencheCampoPorId("passwd", "QA@everis213");
+//        util.clickPorNome("SubmitLogin");
+//
+//    }
 
-        driver.get("http://automationpractice.com/index.php?controller=address");
 
-        util.clickPorCss("btn btn-default button button-medium");
+    public void cadastrarNovoEndereco() {
+
+        //driver.get("http://automationpractice.com/index.php");
+        //loginPage.RealizarLogin();
+
+        //util.clickPorxpath("//span[contains(@class, 'icon-building')and text()='Addresses']");
+        util.clickPorxpath("//a[@title='Addresses']");
+        util.clickPorxpath("//a[@title='Add an address']");
         util.preencheCampoPorId("firstname", "customer_firstname");
         util.preencheCampoPorId("lastname", "customer_lastname");
         util.preencheCampoPorId("address1", "address1");
@@ -34,3 +55,4 @@ public class CadastrarNovoEnderecoPage {
 
     }
 }
+

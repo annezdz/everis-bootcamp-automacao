@@ -33,7 +33,7 @@ public class RealizarLoginTest {
 		driver.findElement(By.id("email")).sendKeys("everisbootcamp@qabeginner.com");
 		driver.findElement(By.id("passwd")).sendKeys("QA@everis213");
 		driver.findElement(By.name("SubmitLogin")).click();
-		utils.esperarQueOElementoSejaVisivel(driver,By.cssSelector("a[title='Orders'] span"));
+		//utils.esperarQueOElementoSejaVisivel(driver,By.cssSelector("a[title='Orders'] span"));
 
 	}
 

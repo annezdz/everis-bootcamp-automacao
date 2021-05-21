@@ -34,7 +34,6 @@ public class CadastrarUsuarioPageTest {
 		WebDriverWait wait = new WebDriverWait(driver, 400);
 
 		cadastrarUsuarioPage.cadastrarusuario();
-		//util.esperarQueOElementoSejaVisivel(driver,By.cssSelector("a[title='Orders'] span"));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[title='Orders'] span")));
 
 		WebElement validaTexto = driver.findElement(By.cssSelector("a[title='Orders'] span"));

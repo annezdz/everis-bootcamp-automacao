@@ -14,6 +14,8 @@ public class Utils {
 		this.driver = driver;
 	}
 
+
+
 	public void preencheCampoPorId(String id_campo, String value) {
 
 		driver.findElement(By.id(id_campo)).sendKeys(value);
@@ -27,7 +29,7 @@ public class Utils {
 	public void rollbackEmail(WebElement email_create){
 		driver.findElements(By.id(String.valueOf(email_create))).clear();
 	}
-	
+
 	public void preencheCampoPorCss(String id_campo, String value) {
 
 		driver.findElement(By.cssSelector(id_campo)).sendKeys(value);
@@ -37,6 +39,12 @@ public class Utils {
 
 		driver.findElement(By.cssSelector(css_campo)).click();
 	}
+
+	public void clickPorxpath(String xpath_campo){
+		driver.findElement(By.xpath(xpath_campo)).click();
+
+	}
+
 
 	public void clickPorNome(String name_campo) {
 
@@ -53,7 +61,6 @@ public class Utils {
 	 * Alterei no método o ExpectedConditions de presenceOfElementLocated para visibilityOfElementLocated
 	 * pois esse método garante além da presença a visibilidade do elemento
 	 * na página,sendo que a altura e largura sejam maiores que 0.
-	 *
 	 * @param driver
 	 * @param locatorObject
 	 */

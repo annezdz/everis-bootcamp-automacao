@@ -8,12 +8,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.CadastrarNovoEnderecoPage;
+import pages.RealizarLoginPage;
 import utils.Utils;
 
 public class CadastrarNovoEnderecoPageTest {
 
     private WebDriver driver;
+    private RealizarLoginPage loginPage;
     private CadastrarNovoEnderecoPage cadastrarNovoEnderecoPage;
     private Utils utils;
 
@@ -21,14 +25,20 @@ public class CadastrarNovoEnderecoPageTest {
     public void inicializa(){
         System.setProperty("webdriver.chrome.driver","src/test/resources/drivers/chromedriver.exe");
         driver = new ChromeDriver();
+        loginPage = new RealizarLoginPage(driver);
         cadastrarNovoEnderecoPage = new CadastrarNovoEnderecoPage(driver);
 
     }
 
     @Test
     public void cadastrarNovoEnderecoPage(){
+        loginPage.RealizarLogin();
         cadastrarNovoEnderecoPage.cadastrarNovoEndereco();
-        utils.esperarQueOElementoSejaVisivel(driver, By.cssSelector("a[title='Update'] span"));
+        WebDriverWait wait = new WebDriverWait(driver, 400);
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[title='Update'] span")));
+
+        //utils.esperarQueOElementoSejaVisivel(driver, By.cssSelector("a[title='Update'] span"));
         WebElement validaTexto = driver.findElement(By.cssSelector("a[title='Orders'] span"));
         Assert.assertEquals("Back to your addresses",validaTexto.getText());
 

@@ -42,7 +42,7 @@ public class CadastrarUsuarioPageTest {
 
 	@After
 	public void afterCenario() {
-		//util.rollbackEmail(driver.findElement(By.id("email_create")));
+		util.rollbackEmail(driver.findElement(By.id("email_create")));
 		driver.quit();
 	}
 }

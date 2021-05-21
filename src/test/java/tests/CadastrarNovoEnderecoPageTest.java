@@ -19,7 +19,7 @@ public class CadastrarNovoEnderecoPageTest {
     private WebDriver driver;
     private RealizarLoginPage loginPage;
     private CadastrarNovoEnderecoPage cadastrarNovoEnderecoPage;
-    private Utils utils;
+    private Utils util;
 
     @Before
     public void inicializa(){
@@ -27,6 +27,7 @@ public class CadastrarNovoEnderecoPageTest {
         driver = new ChromeDriver();
         loginPage = new RealizarLoginPage(driver);
         cadastrarNovoEnderecoPage = new CadastrarNovoEnderecoPage(driver);
+        driver.manage().window().maximize();
 
     }
 
@@ -34,12 +35,8 @@ public class CadastrarNovoEnderecoPageTest {
     public void cadastrarNovoEnderecoPage(){
         loginPage.RealizarLogin();
         cadastrarNovoEnderecoPage.cadastrarNovoEndereco();
-        WebDriverWait wait = new WebDriverWait(driver, 400);
-
+        WebDriverWait wait = new WebDriverWait(driver, 200);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[title='Update'] span")));
-
-
-        //utils.esperarQueOElementoSejaVisivel(driver, By.cssSelector("a[title='Update'] span"));
         WebElement validaTexto = driver.findElement(By.cssSelector("a[title='Add an address'] span"));
         Assert.assertEquals("Add a new address",validaTexto.getText());
 
